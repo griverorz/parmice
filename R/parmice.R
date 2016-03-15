@@ -14,16 +14,19 @@ setup_parallel <- function() {
 #' @param paropts A named list of arguments passed to \code{foreach}
 #' @return A \code{mids} object
 #' @examples
+#' library(mice)
+#' library(doParallel)
+#' library(parallel)
 #' ncores <- 2
 #' cl <- makeCluster(ncores)
 #' clusterSetRNGStream(cl, 31313)
 #' registerDoParallel(cl)
 #' parmice(nhanes, m=5, paropts=list(".combine"=ibind))
-#' @import mice doParallel 
+#' @import mice 
 #' @export
 parmice <- function(..., paropts=list(".combine"=ibind)) {
     
-    parmice:::setup_parallel()
+    setup_parallel()
     ncores <- foreach::getDoParWorkers()
     
     ## Create a call to mice

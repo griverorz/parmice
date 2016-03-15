@@ -1,12 +1,12 @@
 context("Random seeds")
 
 test_that("Random seed is set in the clusters", {    
-          ncores <- 2
-          cl <- makeCluster(ncores)
-          
-          registerDoParallel(cl)
 
+          ncores <- 2
+          cl <- makeCluster(ncores)          
+          registerDoParallel(cl)
           clusterSetRNGStream(cl, 31313)
+          
           first <- parmice(nhanes, m=2, paropts=list(".combine"=ibind))
           clusterSetRNGStream(cl, 31313)
           second <- parmice(nhanes, m=2, paropts=list(".combine"=ibind))
@@ -24,13 +24,13 @@ test_that("Random seed is set in the clusters", {
 })
 
 
-test_that("Imputations are different after setting the seed", {    
+test_that("Imputations are different after setting the seed", {
+    
           ncores <- 2
           cl <- makeCluster(ncores)
-          
           registerDoParallel(cl)
-
           clusterSetRNGStream(cl, 31313)
+          
           first <- parmice(nhanes, m=2, paropts=list(".combine"=ibind))
 
           expect_false(isTRUE(all.equal(complete(first, 1), complete(first, 2))))
