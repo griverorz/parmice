@@ -19,10 +19,11 @@ setup_parallel <- function() {
 #' clusterSetRNGStream(cl, 31313)
 #' registerDoParallel(cl)
 #' parmice(nhanes, m=5, paropts=list(".combine"=ibind))
+#' @import mice doParallel 
 #' @export
 parmice <- function(..., paropts=list(".combine"=ibind)) {
     
-    setup_parallel()
+    parmice:::setup_parallel()
     ncores <- foreach::getDoParWorkers()
     
     ## Create a call to mice
@@ -35,7 +36,7 @@ parmice <- function(..., paropts=list(".combine"=ibind)) {
     }
     m <- Call$m
 
-    if (!is.na(Call$seed)) {
+    if (!is.null(Call$seed)) {
         warning("Deleting seed. It should be set via clusterSetRNGStream")
         Call$seed <- NA ## Do not overwrite the seed from the cluster
     }

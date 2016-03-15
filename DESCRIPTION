@@ -3,13 +3,16 @@ Title: Parallel mice
 Version: 0.1
 Authors@R: person("Gonzalo", "Rivero", email = "gonzalorivero@westat.com",
                   role = c("aut", "cre"))
+Author: Gonzalo Rivero [aut, cre],
+Maintainer: Gonzalo Rivero <gonzalorivero@westat.com>
 Description: A thin layer on top of mice that uses foreach to perform parallel imputations
 Depends: R (>= 3.1.0)
 License: GPL-3
 LazyData: true
 Imports:
 	mice,
-	foreach,
 	doParallel
+Suggests:
+	testthat
 	
 	
