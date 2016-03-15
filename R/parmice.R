@@ -22,6 +22,7 @@ setup_parallel <- function() {
 #' clusterSetRNGStream(cl, 31313)
 #' registerDoParallel(cl)
 #' parmice(nhanes, m=5, paropts=list(".combine"=ibind))
+#' stopCluster(cl)
 #' @import mice 
 #' @export
 parmice <- function(..., paropts=list(".combine"=ibind)) {
