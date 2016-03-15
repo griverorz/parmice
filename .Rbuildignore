@@ -1,0 +1,5 @@
+^.git
+^.gitignore
+^.bumpversioncfg
+makefile
+README.md
