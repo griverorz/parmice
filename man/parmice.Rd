@@ -18,6 +18,9 @@ A \code{mids} object
 Thin wrapper around mice to perform imputations in parallel
 }
 \examples{
+library(mice)
+library(doParallel)
+library(parallel)
 ncores <- 2
 cl <- makeCluster(ncores)
 clusterSetRNGStream(cl, 31313)
