@@ -1,6 +1,6 @@
 Package: parmice
 Title: Parallel mice
-Version: 0.0.1
+Version: 1.0.0
 Authors@R: person("Gonzalo", "Rivero", email = "gonzalorivero@westat.com",
                   role = c("aut", "cre"))
 Author: Gonzalo Rivero [aut, cre],
