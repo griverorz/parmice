@@ -27,7 +27,7 @@ setup_parallel <- function() {
 #' @export
 parmice <- function(..., paropts=list(".combine"=ibind)) {
     
-    setup_parallel()
+    parmice:::setup_parallel()
     ncores <- foreach::getDoParWorkers()
     
     ## Create a call to mice
@@ -47,6 +47,8 @@ parmice <- function(..., paropts=list(".combine"=ibind)) {
     
     ## Load mice package
     paropts$.packages <- "mice"
+    dta <- names(Call[2:length(Call)]) == "" 
+    paropts$.export <- as.character(Call[[which(dta) + 1]])
     
     parargs <- names(paropts)
     forargs <- names(formals(foreach::foreach))
